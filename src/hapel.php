@@ -5,7 +5,7 @@
  * @link https://github.com/mprograms/HAPEL
  *
  * @copyright 2018 MRittman
- * @version 0.3.1
+ * @version 0.3.2
  *
  * @license GPL
  * @license https://www.gnu.org/licenses/gpl-3.0.txt
@@ -15,7 +15,7 @@
 
 namespace HAPEL;
 
-define('HAPEL_VERSION', '0.3.1');
+define('HAPEL_VERSION', '0.3.2');
 
 $classes = array(
     '/lib/attributes.php',

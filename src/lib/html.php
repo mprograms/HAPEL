@@ -39,7 +39,7 @@ class Html
      * HTML CLASS CONSTRUCTOR
      * Setup other classes
      *
-     * @param $settings @see $this->settings
+     * @param array $settings @see $this->settings
      *
      */
     public function __construct($settings = null)
@@ -53,12 +53,23 @@ class Html
     /// ROOT & DOCUMENT ELEMENTS
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     * CREATE A DOCTYPE
+     * @param string $type the doctype value.
+     * @return string
+     */
     public function doctype($type = 'html')
     {
         $c = new Component($this->settings);
         return $c::doctype($type);
     }
 
+    /**
+     * CREATE A BASE
+     * @param string $href sets the url of the base.
+     * @param string $target sets the target.
+     * @return string
+     */
     public function base($href = null, $target = '_self')
     {
         $attr['href'] = $href;
@@ -67,6 +78,16 @@ class Html
         return $c::emptyElement('base', null, null, null, null, $attr);
     }
 
+    /**
+     * CREATE A BODY TAG
+     * @param bool | string $child {@see Attributes::$child}
+     * @param string | null $class {@see Attributes::$class}
+     * @param string | null $id {@see Attributes::$id}
+     * @param string | array | null $style {@see Attributes::$style}
+     * @param array | null $data {@see Attributes::$data}
+     * @param array | null $attr {@see Attributes::$attr}
+     * @return string
+     */
     public function body($child = true, $class = null, $id = null, $style = null, $data = null, $attr = null)
     {
         $c = new Component($this->settings);

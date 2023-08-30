@@ -21,7 +21,8 @@ class Element
 {
 
     /**
-     * @var array $settings {@see Html->$settings}
+     * @var array $_settings {@see Html::$settings}
+     * @var array $_attributes {@see Attributes}
      *
      */
 
@@ -34,7 +35,6 @@ class Element
     {
         self::$_settings = $settings;
         self::$_attributes = new Attributes();
-        
     }
 
 

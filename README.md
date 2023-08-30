@@ -1,6 +1,6 @@
 # HAPEL
 
-Welcome to HAPEL (Html And Php Enclosed Library)!
+Welcome to HAPEL (Html And Php Embedded Library)!
 
 ---
 
@@ -16,7 +16,7 @@ code or embed long strings of HTML markup. With HAPEL you write less code and ge
 * **No Clutter:** HAPEL streamlines repetitive code and saves having to write many lines of code across your
   application.
 * **Code Faster:** Using HAPEL to create HTML output requires less code and less time.
-* **Fully Customizable:** HAPEL allows you to easily extend its baked in functions to create your own html output.
+* **Fully Customizable:** HAPEL allows you to easily extend its baked-in functions to create your own html output.
 * **Fast Render:** HAPEL renders HTML lightning fast.
 * **Component Builders** HAPEL makes creating complex components and labor-intensive markup easy. 
 

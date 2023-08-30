@@ -1,0 +1,19 @@
+{
+  "name": "hapel/hapel",
+  "type": "library",
+  "description": "HAPEL (Html And Php Embedded Library) makes generating html with php easier with built-in functions. Fast, lightweight, and easily extendable.",
+  "keywords": ["php","html", "html generator"],
+  "homepage": "https://github.com/mprograms/HAPEL",
+  "license": "GPL-3.0-only",
+
+  "authors": [
+    {
+      "name": "MRittman",
+      "homepage": "https://github.com/mprograms/",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.6"
+  }
+}

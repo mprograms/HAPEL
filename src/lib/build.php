@@ -6,9 +6,6 @@ namespace HAPEL;
 class Build
 {
 
-
-
-
     private static $element;
     private static $settings;
 
@@ -40,12 +37,5 @@ class Build
        var_dump($node->class);
 
     }
-
-
-
-
-
-
-
 
 }
