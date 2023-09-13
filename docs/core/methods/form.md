@@ -1,10 +1,10 @@
 # HAPEL Core Method Reference
 
 ---
-##\<form ...>
+## \<form ...>
 
 
-###Description
+### Description
 
 Creates a `<form>` html tag.
 
@@ -12,26 +12,26 @@ Creates a `<form>` html tag.
 form($child, $method, $action, $class, $id, $style, $data, $attr);
 ```
 
-###Parameters
+### Parameters
 
-Parameter                               | Required  | Default
-----------------------------------------|-----------|--------------
-[$child](../attributes/child.md)        | no        | true
-[$method](../attributes/method.md)      | no        | null
-[$action](../attributes/action.md)      | no        | null
-[$class](../attributes/class.md)        | no        | null
-[$id](../attributes/id.md)              | no        | null
-[$style](../attributes/style.md)        | no        | null
-[$data](../attributes/data.md)          | no        | null
-[$attr](../attributes/attr.md)          | no        | null
+| Parameter                           | Required  | Default |
+|-------------------------------------|-----------|---------|
+| [$child](../attributes/child.md)    | no        | false   |
+| [$method](../attributes/method.md)  | no        | null    |
+| [$action](../attributes/action.md)  | no        | null    |
+| [$class](../attributes/class.md)    | no        | null    |
+| [$id](../attributes/id.md)          | no        | null    |
+| [$style](../attributes/style.md)    | no        | null    |
+| [$data](../attributes/data.md)      | no        | null    |
+| [$attr](../attributes/attr.md)      | no        | null    |
 
 
-###Return Values
+### Return Values
 
 `string`
 
 
-###Example
+### Example
 
 Usage:
 ```php

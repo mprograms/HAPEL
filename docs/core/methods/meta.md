@@ -1,10 +1,10 @@
 # HAPEL Core Method Reference
 
 ---
-##\<meta ...>
+## \<meta ...>
 
 
-###Description
+### Description
 
 Creates a `<meta>` html tag.
 
@@ -12,21 +12,21 @@ Creates a `<meta>` html tag.
 meta($name, $content, $attr);
 ```
 
-###Parameters
+### Parameters
 
-Parameter                               | Required  | Default
-----------------------------------------|-----------|--------------
-[$name](../attributes/name.md)          | yes       |
-[$content](../attributes/content.md)    | yes       |
-[$attr](../attributes/attr.md)          | no        | null
+| Parameter                            | Required  | Default |
+|--------------------------------------|-----------|---------|
+| [$name](../attributes/name.md)       | yes       | null    |
+| [$content](../attributes/content.md) | yes       | null    |
+| [$attr](../attributes/attr.md)       | no        | null    |
 
 
-###Return Values
+### Return Values
 
 `string`
 
 
-###Example
+### Example
 
 Usage:
 ```php

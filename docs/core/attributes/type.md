@@ -15,9 +15,3 @@ $type = 'text/css';
 ```html
 <tag type="text/css"></tag>
 ```
-
-###Methods Using This Parameter
-* [doctype()](../methods/doctype.md)
-* [link()](../methods/link.md)
-* [script()](../methods/script.md)
-* [input()](../methods/input.md)

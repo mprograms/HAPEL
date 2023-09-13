@@ -7,6 +7,10 @@
  * HAPEL Table Builder Class  - Basic Example
  */
 
+
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+
 // Include HAPEL's class loader.
 $dir = dirname(dirname(__DIR__)) . '/src/hapel.php';
 require_once($dir);

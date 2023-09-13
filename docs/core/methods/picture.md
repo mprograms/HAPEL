@@ -1,52 +1,52 @@
 # HAPEL Core Method Reference
 
 ---
-##\<picture ...>
+## \<picture ...>
 
 
-###Description
+### Description
 
 Creates a `<picture>` html tag.
 
 ```php
-picture($source, $src, $alt, $class, $id, $style, $data, $attr);
+picture($sources, $src, $alt, $class, $id, $style, $data, $attr);
 ```
 
-###Parameters
+### Parameters
 
-Parameter                           | Required  | Default
-------------------------------------|-----------|----------------
-[$srcset](../attributes/srcset.md)  | yes       |
-[$src](../attributes/src.md)        | yes       |
-[$alt](../attributes/alt.md)        | no        | null
-[$class](../attributes/class.md)    | no        | null
-[$id](../attributes/id.md)          | no        | null
-[$style](../attributes/style.md)    | no        | null
-[$data](../attributes/data.md)      | no        | null
-[$attr](../attributes/attr.md)      | no        | null
+| Parameter                           | Required  | Default |
+|-------------------------------------|-----------|---------|
+| [sources](../attributes/sources.md) | yes       |         |
+| [$src](../attributes/src.md)        | yes       |         |
+| [$alt](../attributes/alt.md)        | no        | null    |
+| [$class](../attributes/class.md)    | no        | null    |
+| [$id](../attributes/id.md)          | no        | null    |
+| [$style](../attributes/style.md)    | no        | null    |
+| [$data](../attributes/data.md)      | no        | null    |
+| [$attr](../attributes/attr.md)      | no        | null    |
 
  
-###Return Values
+### Return Values
 
 `string`
 
 
-###Example
+### Example
 
 Usage:
 ```php
-$source = array(
-    array(
+$sources = [
+    [
         'media' => '650px',
         'srcset' => 'large.jpg'
-    ),
-    array(
+    ],
+    [
         'media' => '350px',
         'srcset' => 'small.jpg'
-    )
-);
+    ]
+];
 
-echo picture($source, 'default.jpg','altText','myClass');
+echo picture($sources, 'default.jpg', 'altText', 'myClass');
 ```
 Result:
 ```html

@@ -1,10 +1,10 @@
 # HAPEL Core Method Reference
 
 ---
-##\<link ...>
+## \<link ...>
 
 
-###Description
+### Description
 
 Creates a `<link>` html tag.
 
@@ -12,28 +12,28 @@ Creates a `<link>` html tag.
 link($rel, $href, $type, $attr);
 ```
 
-###Parameters
+### Parameters
 
-Parameter                               | Required  | Default
-----------------------------------------|-----------|--------------
-[$rel](../attributes/rel.md)            | yes       |
-[$href](../attributes/href.md)          | yes       |
-[$type](../attributes/type.md)          | yes       |
-[$attr](../attributes/attr.md)          | no        | null
+| Parameter                       | Required  | Default |
+|---------------------------------|-----------|---------|
+| [$rel](../attributes/rel.md)    | yes       |         |
+| [$href](../attributes/href.md)  | yes       |         |
+| [$type](../attributes/type.md)  | yes       |         |
+| [$attr](../attributes/attr.md)  | no        | null    |
 
 
-###Return Values
+### Return Values
 
 `string`
 
 
-###Example
+### Example
 
 Usage:
 ```php
-echo meta('robots', 'index, follow');
+echo link('stylesheet', 'style.css');
 ```
 Result:
 ```html
-<meta name="robots" content="index, follow">
+<link rel="stylesheet" href="style.css" />
 ```

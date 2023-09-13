@@ -9,8 +9,8 @@
  * @license GPL
  * @license https://www.gnu.org/licenses/gpl-3.0.txt
  *
- * @subpackage Element
- * This class builds an element and returns its compiled structure and content.
+ * @subpackage Builder\Table
+ * This class is used to set table content and return its compiled structure and content.
  *
  * @since 0.2.0
  *
@@ -25,80 +25,117 @@ class Table
 {
 
     /**
-     * @var array $_thead holds the row / cell data for the header.
-     * @var array $_tbody holds the row / cell data for the body.
-     * @var array $_tfoot holds the row / cell data for the footer.
-     * @var object $HTML functions to make html output.
-     * @var string|array $class the class of the table.
-     * @var string $id the id of the table.
+     * HTML OBJECT
+     * Holds the html class object.
+     * @var object $_HTML
+     * @see Html
+     * @since 0.2.0
      */
-    private $_thead = array();
-    private $_tbody = array();
-    private $_tfoot = array();
-    private $HTML;
-    private $_class = null;
-    private $_id = null;
-    private $_rowClass = null;
+    private $_HTML;
 
+
+    /**
+     * THEAD CONTENT
+     * Holds an array of content for the table head.
+     * @var array $_thead
+     * @since 0.2.0
+     */
+    private $_thead = [];
+
+
+    /**
+     * TBODY CONTENT
+     * Holds an array of content for the table body.
+     * @var array $_tbody
+     * @since 0.2.0
+     */
+    private $_tbody = [];
+
+
+    /**
+     * TFOOT CONTENT
+     * Holds an array of content for the table footer.
+     * @var array $_tbody
+     * @since 0.2.0
+     */
+    private $_tfoot = [];
+
+
+    /**
+     * TABLE CLASS
+     * Holds the class(es) for the table.
+     * @var null|string $class
+     * @since 0.2.0
+     */
+    private $_class = null;
+
+
+    /**
+     * TABLE ID
+     * Holds the id for the table.
+     * @var null|string $id
+     * @since 0.2.0
+     */
+    private $_id = null;
+
+
+    /**
+     * ROW CLASS
+     * Holds the row class for the table row.
+     * @var null|string $_rowClass
+     * @since 0.2.0
+     */
+    private $_rowClass = null;
 
 
     public function __construct()
     {
         // Load HAPEL Html Class
-        $this->HTML = new Html();
+        $this->_HTML = new Html();
 
         // Define Table Component Variables
-        $this->_thead = array('rows' => array());
-        $this->_tbody = array('rows' => array());
-        $this->_tfoot = array('rows' => array());
+        $this->_thead = $this->_setRowDefaults();;
+        $this->_tbody = $this->_setRowDefaults();;
+        $this->_tfoot = $this->_setRowDefaults();;
     }
 
 
     /**
      * SET THE TABLE CLASS ATTR
-     *
-     * @access public
      * @since 0.2.0
-     *
-     * @param null $class
+     * @param null|string $class
      */
     public function setClass($class = null)
     {
         $this->_class = $class;
     }
 
+
     /**
-     * SET THE TABLE ID ATTR
-     *
-     * @access public
+     * SET THE TABLE ID
      * @since 0.2.0
-     *
-     * @param null $id
+     * @param null|string $id
      */
     public function setId($id = null)
     {
         $this->_id = $id;
     }
 
+
     /**
-     * SET THE ROW CLASS ATTR
-     *
-     * @access public
+     * SET THE ROW CLASS
      * @since 0.2.0
-     *
-     * @param $class
+     * @param null|string $class
      */
     public function setRowClass($class)
     {
         $this->_rowClass = $class;
     }
 
+
     /**
      * UNSETS SET THE ROW CLASS ATTR
-     *
-     * @access public
      * @since 0.2.0
-     *
      */
     public function unsetRowClass()
     {
@@ -107,32 +144,30 @@ class Table
 
 
     /**
-     * UNSETS ALL SETTINGS
+     * UNSETS ALL TABLE SETTINGS
      * This will remove all table settings and data.
-     *
-     * @access public
      * @since 0.3.0
-     *
-     *
      */
     public function unsetAll()
     {
-        $this->_thead = array();
-        $this->_tbody = array();
-        $this->_tfoot = array();
+        $this->_thead = $this->_setRowDefaults();
+        $this->_tbody = $this->_setRowDefaults();
+        $this->_tfoot = $this->_setRowDefaults();
         $this->_class = null;
         $this->_id = null;
         $this->_rowClass = null;
+    }
+
+    private function _setRowDefaults()
+    {
+        return ['rows' => []];
     }
 
 
     /**
      * GET THE TABLE
      * This will return the compiled table.
-     *
-     * @access public
      * @since 0.2.0
-     *
      * @return string
      */
     public function get()
@@ -142,11 +177,8 @@ class Table
 
 
     /**
-     * ADD TO TABLE TBODY CONTENTS
-     *
-     * @access public
+     * ADD ROW TO TABLE TBODY
      * @since 0.2.0
-     *
      * @param mixed ...$row
      */
     public function appendTBody(...$row)
@@ -154,12 +186,10 @@ class Table
         $this->_appendRow($row, $this->_tbody);
     }
 
+
     /**
-     * TABLE THEAD
-     *
-     * @access public
+     * ADD ROW TO TABLE THEAD
      * @since 0.2.0
-     *
      * @param mixed ...$row
      */
     public function appendTHead(...$row)
@@ -169,11 +199,8 @@ class Table
 
 
     /**
-     * TABLE TFOOT
-     *
-     * @access public
+     * ADD ROW TO TABLE FOOT
      * @since 0.2.0
-     *
      * @param mixed ...$row
      */
     public function appendTFoot(...$row)
@@ -182,62 +209,48 @@ class Table
     }
 
 
-
     /**
      * CLEAR TBODY CONTENTS
-     *
-     * @access public
+     * @param null|int|array $rowNumber the row number(s) to be deleted.
+     * @see self::_clearContent();
      * @since 0.2.0
-     *
-     * @param $i null|int If null all rows will be deleted. If an int, then the specific row number will be deleted. Note this is an array. The first row number is 0.
-     *
      */
-    public function clearTBody($i = null)
+    public function clearTBody($rowNumber = null)
     {
-        $this->_clearContent($i,$this->_tbody);
+        $this->_clearContent($this->_tbody, $rowNumber);
     }
+
 
     /**
      * CLEAR THEAD CONTENTS
-     * This will clear the tHead content
-     *
-     * @access public
-     * @since 0.3.0
-     *
-     * @param $i null|int If null all rows will be deleted. If an int, then the specific row number will be deleted. Note this is an array. The first row number is 0.
+     * @param null|int|array $rowNumber the row number(s) to be deleted.
+     * @see self::_clearContent();
+     * @since 0.2.0
      */
-    public function clearTHead($i = null)
+    public function clearTHead($rowNumber = null)
     {
-        $this->_clearContent($i,$this->_thead);
+        $this->_clearContent($this->_tbody, $rowNumber);
     }
-
 
 
     /**
      * CLEAR TFOOT CONTENTS
-     *
-     * @access public
-     * @since 0.3.0
-     *
-     * @param $i null|int If null all rows will be deleted. If an int, then the specific row number will be deleted. Note this is an array. The first row number is 0.
-     *
+     * @param null|int|array $rowNumber the row number(s) to be deleted.
+     * @see self::_clearContent();
+     * @since 0.2.0
      */
-    public function clearTFoot($i = null)
+    public function clearTFoot($rowNumber = null)
     {
-        $this->_clearContent($i, $this->_tfoot);
+        $this->_clearContent($this->_tbody, $rowNumber);
     }
-
-
 
 
     /**
      * ADD ROW TO TABLE
-     * This will add a row to the table.
-     *
-     * @access public
+     * @param mixed ...$row is an array of column data. Use addTD() or addTH() to create data.
+     * @see self::addTD()
+     * @see self::addTH()
      * @since 0.2.0
-     *
-     * @param mixed ...$row is an array of column data (use addTD() or addTH() to create data)
      */
     public function addRow(...$row)
     {
@@ -250,55 +263,41 @@ class Table
 
 
     /**
-     * ADD TD
-     * This will add a table column
-     *
-     * @access public
-     * @see _addCell for param details
-     *
-     * @param string $content
-     * @param string|array $class
-     * @param string $id
-     *
+     * ADD TD CELL
+     * @param string $content {@see self::_addCell()}
+     * @param string $class {@see self::_addCell()}
+     * @param string $id {@see self::_addCell()}
      * @since 0.2.0
-     *
      * @return array
-     *
      */
     public function addTD($content = '', $class = null, $id = null)
     {
         return $this->_addCell('td', $content, $class, $id);
     }
 
+
     /**
-     * ADD TD
-     * This will add a table column
-     *
-     * @access public
-     *
-     * @see _addCell for param details
-     *
-     * @return array
+     * ADD TH CELL
+     * @param string $content {@see self::_addCell()}
+     * @param string $class {@see self::_addCell()}
+     * @param string $id {@see self::_addCell()}
      * @since 0.2.0
-     *
+     * @return array
      */
     public function addTH($content = '', $class = null, $id = null)
     {
         return $this->_addCell('th', $content, $class, $id);
     }
 
+
     /**
      * ADD TABLE CELL
-     * This will add a table column or header cell
-     *
      * @access private
-     * @since 0.2.0
-     *
      * @param string $type is the type of cell to make ('td' or 'th')
      * @param string $content is the content to show in the cell.
-     * @param null|string|array $class is the class for the cell.
+     * @param null|string $class is the class for the cell.
      * @param null|string $id is the id for the cell.
-     *
+     * @since 0.2.0
      * @return array
      */
     private function _addCell($type = 'td', $content = '', $class = null, $id = null)
@@ -314,126 +313,120 @@ class Table
 
     /**
      * CLEAR TABLE CONTENT
-     * This will clear the content from a given table section or a specific row within a table section.
+     * @param $rowNumbers null|int|array array index of row(s) to remove.
+     *      null: Remove all content.
+     *      int: Remove specific row.
+     *      array:  Remove specific rows.
+     * @param array $sectionData the section data
+     *@since 0.3.0
      *
-     * @access private
-     * @since 0.3.0
-     *
-     * @param $i null|int if null it will delete all content, if the row number, it will delete the row's data.
-     * @param $v array is the array to remove data from.
      */
-    private function _clearContent($i = null, &$v)
+    private function _clearContent(&$sectionData, $rowNumbers = null)
     {
-        if ( is_int($i) ) {
-            unset($v['rows'][$i]);
+        if ( !is_null($rowNumbers) ) {
+            if (!is_int($rowNumbers)) {
+                $rowNumbers = [$rowNumbers];
+            }
+            if ( is_array($rowNumbers)) {
+                foreach ($rowNumbers as $rowNumber) {
+                    unset($sectionData['rows'][$rowNumber]);
+                }
+            }
         } else {
-            $v['rows'] = array();
+            $sectionData['rows'] = [];
         }
     }
 
+
     /**
      * ADD TABLE CONTENT
-     * This will add row content to a specific table section.
-     *
      * @access private
+     * @param array $rows
+     * @param array $tableSection
      * @since 0.3.0
-     *
-     * @param $rows
-     * @param $v
      */
-    private function _appendRow($rows, &$v)
+    private function _appendRow($rows, &$tableSection)
     {
         foreach ($rows as $row) {
-            $v['rows'][] = $row;
+            $tableSection['rows'][] = $row;
         }
     }
 
 
     /**
      * BUILD THE TABLE
-     * This will build the table.
-     *
      * @access private
      * @since 0.2.0
-     *
      * @return string
-     *
      */
     private function _buildTable()
     {
 
         $o = '';
-
-        $o .= $this->HTML->table(true, $this->_class, $this->_id);
-
+        $o .= $this->_HTML->table(true, $this->_class, $this->_id);
 
         // Add thead
-        $o .= $this->HTML->thead();
+        $o .= $this->_HTML->thead();
         foreach ( $this->_thead['rows'] as $row){
             $o .= $this->_buildRow($row);
         }
-        $o .= $this->HTML->thead(false);
+        $o .= $this->_HTML->thead(false);
 
         // Add tbody
-        $o .= $this->HTML->tbody();
+        $o .= $this->_HTML->tbody();
         foreach ( $this->_tbody['rows'] as $row){
             $o .= $this->_buildRow($row);
         }
-        $o .= $this->HTML->tbody(false);
+        $o .= $this->_HTML->tbody(false);
 
         // Add tfoot
-        $o .= $this->HTML->tfoot();
+        $o .= $this->_HTML->tfoot();
         foreach ( $this->_tfoot['rows'] as $row){
             $o .= $this->_buildRow($row);
         }
-        $o .= $this->HTML->tfoot(false);
+        $o .= $this->_HTML->tfoot(false);
 
 
-        $o .= $this->HTML->table(false);
+        $o .= $this->_HTML->table(false);
 
         return $o;
     }
 
+
     /**
      * BUILD A ROW
      * This will build a table row.
-     *
      * @access private
      * @since 0.2.0
-     *
      * @param array $row contains row data.
-     *
      * @return string
      */
     private function _buildRow($row)
     {
         $o = '';
-        $o .= $this->HTML->tr(true, $row['class']);
+        $o .= $this->_HTML->tr(true, $row['class']);
         foreach ( $row['cells'] as $cell) {
             $o .= $this->_buildCell($cell);
         }
-        $o .= $this->HTML->tr(false);
+        $o .= $this->_HTML->tr(false);
         return $o;
     }
 
+
     /**
      * BUILD A CELL
-     * This will build a table cell.
-     *
      * @access private
      * @since 0.2.0
-     *
      * @param array $cell contains cell data.
-     *
      * @return string
      */
     private function _buildCell($cell)
     {
         if ( $cell['type'] == 'th') {
-            return $this->HTML->th($cell['content'], $cell['class'], $cell['id']);
+            return $this->_HTML->th($cell['content'], $cell['class'], $cell['id']);
         }
         if ( $cell['type'] == 'td') {
-            return $this->HTML->td($cell['content'], $cell['class'], $cell['id']);
+            return $this->_HTML->td($cell['content'], $cell['class'], $cell['id']);
         }
     }
 

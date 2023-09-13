@@ -1,10 +1,10 @@
 # HAPEL Core Method Reference
 
 ---
-##\<tag ...>
+## \<tag ...>
 
 
-###Description
+### Description
 
 HAPEL calls the majority of its methods in the same way. This is known as the HAPEL Standard Parameter Schema.
 It would be redundant to document every method that uses this schema. As a result, a single example is shown below.
@@ -15,30 +15,30 @@ Simply replace `method_name` with the desired function call as found in the [HAP
 method_name($child, $class, $id, $style, $data, $attr);
 ```
 
-###Parameters
+### Parameters
 
-Parameter                           | Required  | Default
-------------------------------------|-----------|----------------
-[$child](../attributes/child.md)    | no        | true
-[$class](../attributes/class.md)    | no        | null
-[$id](../attributes/id.md)          | no        | null
-[$style](../attributes/style.md)    | no        | null
-[$data](../attributes/data.md)      | no        | null
-[$attr](../attributes/attr.md)      | no        | null
+| Parameter                        | Required  | Default |
+|----------------------------------|-----------|---------|
+| [$child](../attributes/child.md) | no        | false   |
+| [$class](../attributes/class.md) | no        | null    |
+| [$id](../attributes/id.md)       | no        | null    |
+| [$style](../attributes/style.md) | no        | null    |
+| [$data](../attributes/data.md)   | no        | null    |
+| [$attr](../attributes/attr.md)   | no        | null    |
 
  
-###Return Values
+### Return Values
 
 `string`
 
 
-###Example
+### Example
 
 Usage:
 ```php
-echo method_name('myClass','myId');
+echo tag('my-class','my-id');
 ```
 Result:
 ```html
-<some_tag class="myClass" id="myId">
+<tag class="my-class" id="my-id">
 ```

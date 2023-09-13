@@ -1,10 +1,10 @@
 # HAPEL Core Method Reference
 
 ---
-##\<img ...>
+## \<img ...>
 
 
-###Description
+### Description
 
 Creates a `<img>` html tag.
 
@@ -14,23 +14,23 @@ img($src, $alt, $class, $id, $style, $data, $attr);
 
 ###Parameters
 
-Parameter                           | Required  | Default
-------------------------------------|-----------|----------------
-[$src](../attributes/src.md)        | no        | null
-[$alt](../attributes/alt.md)        | no        | null
-[$class](../attributes/class.md)    | no        | null
-[$id](../attributes/id.md)          | no        | null
-[$style](../attributes/style.md)    | no        | null
-[$data](../attributes/data.md)      | no        | null
-[$attr](../attributes/attr.md)      | no        | null
+| Parameter                          | Required  | Default |
+|------------------------------------|-----------|---------|
+| [$src](../attributes/src.md)       | no        | null    |
+| [$alt](../attributes/alt.md)       | no        | null    |
+| [$class](../attributes/class.md)   | no        | null    |
+| [$id](../attributes/id.md)         | no        | null    |
+| [$style](../attributes/style.md)   | no        | null    |
+| [$data](../attributes/data.md)     | no        | null    |
+| [$attr](../attributes/attr.md)     | no        | null    |
 
  
-###Return Values
+### Return Values
 
 `string`
 
 
-###Example
+### Example
 
 Usage:
 ```php

@@ -1,30 +1,30 @@
 # HAPEL Core Method Reference
 
 ---
-##\<title ...>
+## \<title ...>
 
 
-###Description
+### Description
 
 Creates a `<title>` html tag.
 
 ```php
-title($child);
+title($text);
 ```
 
-###Parameters
+### Parameters
 
-Parameter                           | Required  | Default
-------------------------------------|-----------|--------------
-[$child](../attributes/child.md)    | no        | true
+| Parameter                        | Required  | Default |
+|----------------------------------|-----------|---------|
+| [$text](../attributes/text.md)   | no        | null    |
 
 
-###Return Values
+### Return Values
 
 `string`
 
 
-###Example
+### Example
 
 Usage:
 ```php

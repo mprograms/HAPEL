@@ -3,14 +3,14 @@
 ---
 
 ## $srcset
-### (array), (required)
+### (string), (optional), Default: null
 
 Provides the data to build a scrset.
 
 
-Value      | Use
------------|-------------
-array      | adds the value of 'string' as the attribute
+| Value  | Use                                          |
+|--------|----------------------------------------------|
+| string | adds the value of 'string' as the attribute  |
 
 ```php
     $srcset = array(
@@ -40,6 +40,3 @@ array      | adds the value of 'string' as the attribute
 <source media="(min-width: 650px)" srcset="large.jpg">
 <source media="(min-width: 350px)" srcset="small.jpg">
 ```
-
-###Methods Using This Parameter
-* [picture()](../methods/picture.md)

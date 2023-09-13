@@ -1,10 +1,10 @@
 # HAPEL Core Method Reference
 
 ---
-##\<input type="time" ...>
+## \<input type="time" ...>
 
 
-###Description
+### Description
 
 Creates a `<input type="time">` html tag.
 
@@ -12,27 +12,27 @@ Creates a `<input type="time">` html tag.
 time($name, $value, $required, $placeholder, $class, $id, $style, $data, $attr);
 ```
 
-###Parameters
+### Parameters
 
-Parameter                                   | Required  | Default
---------------------------------------------|-----------|----------------
-[$name](../attributes/name.md)              | no        | null
-[$value](../attributes/value.md)            | no        | null
-[$required](../attributes/required.md)      | no        | false
-[$placeholder](../attributes/placeholder.md)| no        | null
-[$class](../attributes/class.md)            | no        | null
-[$id](../attributes/id.md)                  | no        | null
-[$style](../attributes/style.md)            | no        | null
-[$data](../attributes/data.md)              | no        | null
-[$attr](../attributes/attr.md)              | no        | null
+| Parameter                                     | Required  | Default         |
+|-----------------------------------------------|-----------|-----------------|
+| [$name](../attributes/name.md)                | no        | null            |
+| [$value](../attributes/value.md)              | no        | null            |
+| [$required](../attributes/required.md)        | no        | false           |
+| [$placeholder](../attributes/placeholder.md)  | no        | null            |
+| [$class](../attributes/class.md)              | no        | null            |
+| [$id](../attributes/id.md)                    | no        | null            |
+| [$style](../attributes/style.md)              | no        | null            |
+| [$data](../attributes/data.md)                | no        | null            |
+| [$attr](../attributes/attr.md)                | no        | null            |
 
  
-###Return Values
+### Return Values
 
 `string`
 
 
-###Example
+### Example
 
 Usage:
 ```php

@@ -1,37 +1,37 @@
 # HAPEL Core Method Reference
 
 ---
-##\<link rel="stylesheet" ...>
+## \<link rel="stylesheet" ...>
 
 
-###Description
+### Description
 
 Creates a `<link rel="stylesheet">` html tag.
 
 ```php
-styleLink($href, $attr);
+stylesheet($href, $attr);
 ```
 
-###Parameters
+### Parameters
 
-Parameter                               | Required  | Default
-----------------------------------------|-----------|--------------
-[$href](../attributes/href.md)          | yes       |
-[$attr](../attributes/attr.md)          | no        | null
+| Parameter                      | Required  | Default |
+|--------------------------------|-----------|---------|
+| [$href](../attributes/href.md) | yes       | null    |
+| [$attr](../attributes/attr.md) | no        | null    |
 
 
-###Return Values
+### Return Values
 
 `string`
 
 
-###Example
+### Example
 
 Usage:
 ```php
-echo styleLink('myStyle.css');
+echo stylesheet('style.css');
 ```
 Result:
 ```html
-<link rel="stylesheet" type="text/css" href="myStyle.css">
+<link rel="stylesheet" type="text/css" href="style.css">
 ```

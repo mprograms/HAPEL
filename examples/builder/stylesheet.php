@@ -8,19 +8,22 @@
  *
  */
 
+
 // Include HAPEL's class loader.
 $dir = dirname(dirname(__DIR__)) . '/src/hapel.php';
 require_once($dir);
 
-$h = new \HAPEL\Html();
 
-// Create a new instance of the table builder class.
+// Create a new instance of the Stylesheet builder class.
 $s = new \HAPEL\Builder\Stylesheet();
 
+
+// Add a selector and properties.
 $s->addSelector('body',
     $s->addProp('background', '#ff9800'),
     $s->addProp('color', '#FFF')
 );
+
 $s->addSelector('h1',
     $s->addProp('font-size', '50px'),
     $s->addProp('font-family', 'Arial, sans-serif'),
@@ -28,12 +31,6 @@ $s->addSelector('h1',
 );
 
 
-echo $h->doctype();
-echo $h->html();
-echo $h->head();
+// Get the created code.
 echo $s->get();
-echo $h->head(false);
-echo $h->body();
-echo $h->h1('Hello World!');
-echo $h->body(false);
-echo $h->html(false);
+

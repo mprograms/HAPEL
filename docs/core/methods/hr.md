@@ -1,10 +1,10 @@
 # HAPEL Core Method Reference
 
 ---
-##\<hr ...>
+## \<hr ...>
 
 
-###Description
+### Description
 
 Creates a `<hr>` html tag.
 
@@ -12,22 +12,22 @@ Creates a `<hr>` html tag.
 hr($class, $id, $style, $attr);
 ```
 
-###Parameters
+### Parameters
 
-Parameter                               | Required  | Default
-----------------------------------------|-----------|--------------
-[$class](../attributes/class.md)        | no        | null
-[$id](../attributes/id.md)              | no        | null
-[$style](../attributes/style.md)        | no        | null
-[$attr](../attributes/attr.md)          | no        | null
+| Parameter                        | Required  | Default  |
+|----------------------------------|-----------|----------|
+| [$class](../attributes/class.md) | no        | null     |
+| [$id](../attributes/id.md)       | no        | null     |
+| [$style](../attributes/style.md) | no        | null     |
+| [$attr](../attributes/attr.md)   | no        | null     |
 
 
-###Return Values
+### Return Values
 
 `string`
 
 
-###Example
+### Example
 
 Usage:
 ```php

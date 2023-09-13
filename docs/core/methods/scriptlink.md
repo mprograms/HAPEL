@@ -1,10 +1,10 @@
 # HAPEL Core Method Reference
 
 ---
-##\<script ...>
+## \<script ...>
 
 
-###Description
+### Description
 
 Creates a `<script>` html tag for an external script.
 
@@ -12,21 +12,21 @@ Creates a `<script>` html tag for an external script.
 scriptLink($src, $type, $attr);
 ```
 
-###Parameters
+### Parameters
 
-Parameter                               | Required  | Default
-----------------------------------------|-----------|--------------
-[$src](../attributes/src.md)            | yes       |
-[$type](../attributes/type.md)          | no        | 'text/javascript'
-[$attr](../attributes/attr.md)          | no        | null
+| Parameter                      | Required  | Default           |
+|--------------------------------|-----------|-------------------|
+| [$src](../attributes/src.md)   | yes       |                   |
+| [$type](../attributes/type.md) | no        | 'text/javascript' |
+| [$attr](../attributes/attr.md) | no        | null              |
 
 
-###Return Values
+### Return Values
 
 `string`
 
 
-###Example
+### Example
 
 Usage:
 ```php

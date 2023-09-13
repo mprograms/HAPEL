@@ -1,10 +1,10 @@
 # HAPEL Core Method Reference
 
 ---
-##\<script ...>
+## \<script ...>
 
 
-###Description
+### Description
 
 Creates a `<script>` html tag.
 
@@ -12,21 +12,21 @@ Creates a `<script>` html tag.
 script($child, $type, $attr);
 ```
 
-###Parameters
+### Parameters
 
-Parameter                               | Required  | Default
-----------------------------------------|-----------|--------------
-[$child](../attributes/child.md)        | yes       | true
-[$type](../attributes/type.md)          | no        | 'text/javascript'
-[$attr](../attributes/attr.md)          | no        | null
+| Parameter                        | Required  | Default           |
+|----------------------------------|-----------|-------------------|
+| [$child](../attributes/child.md) | yes       | false             |
+| [$type](../attributes/type.md)   | no        | 'text/javascript' |
+| [$attr](../attributes/attr.md)   | no        | null              |
 
 
-###Return Values
+### Return Values
 
 `string`
 
 
-###Example
+### Example
 
 Usage:
 ```php

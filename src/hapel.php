@@ -5,7 +5,7 @@
  * @link https://github.com/mprograms/HAPEL
  *
  * @copyright 2018 MRittman
- * @version 0.3.2
+ * @version 0.4.0-beta
  *
  * @license GPL
  * @license https://www.gnu.org/licenses/gpl-3.0.txt
@@ -22,10 +22,7 @@ $classes = array(
     '/lib/element.php',
     '/lib/html.php',
     '/lib/component.php',
-    '/lib/builder/bulletlist.php',
-    '/lib/builder/table.php',
-    '/lib/builder/stylesheet.php',
-    '/lib/plugins/bootstrap.php',
+    '/lib/builder.php'
 );
 
 foreach ($classes as $class) {

@@ -1,10 +1,10 @@
 # HAPEL Core Method Reference
 
 ---
-##\<style ...>
+## \<style ...>
 
 
-###Description
+### Description
 
 Creates a `<style>` html tag.
 
@@ -12,20 +12,20 @@ Creates a `<style>` html tag.
 style($child, $attr);
 ```
 
-###Parameters
+### Parameters
 
-Parameter                               | Required  | Default
-----------------------------------------|-----------|--------------
-[$child](../attributes/child.md)        | yes       |
-[$attr](../attributes/attr.md)          | no        | null
+| Parameter                        | Required  | Default |
+|----------------------------------|-----------|---------|
+| [$child](../attributes/child.md) | yes       | false   |
+| [$attr](../attributes/attr.md)   | no        | null    |
 
 
-###Return Values
+### Return Values
 
 `string`
 
 
-###Example
+### Example
 
 Usage:
 ```php

@@ -7,12 +7,12 @@
 
 Opens, closes or creates the content for the tag to wrap. 
 
-Value      | Use
------------|-------------
-true       | opens the tag
-false      | closes the tag
-string     | wraps the contents of 'string' with the tag
-array      | Only used for getUL(), getOL(), and getDT() methods!!
+| Value  | Use                                                   |
+|--------|-------------------------------------------------------|
+| true   | opens the tag                                         |
+| false  | closes the tag                                        |
+| string | wraps the contents of 'string' with the tag           |
+| array  | Only used for getUL(), getOL(), and getDT() methods!! |
 
 
 ### Examples:

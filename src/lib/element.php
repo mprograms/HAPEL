@@ -21,14 +21,19 @@ class Element
 {
 
     /**
-     * @var array $_settings {@see Html::$settings}
-     * @var array $_attributes {@see Attributes}
-     *
+     * @var array $_settings
+     * @see Html::$settings
+     * @since 0.1.0
      */
-
     private static $_settings;
-    private static $_attributes;
 
+
+    /**
+     * @var array $_attributes
+     * @see Attributes
+     * @since 0.1.0
+     */
+    private static $_attributes;
 
 
     public function __construct($settings = null)
@@ -38,36 +43,97 @@ class Element
     }
 
 
-    
-    
+    /**
+     * SETS A TAG
+     * @param string $value
+     * @see Attributes::$tag
+     * @since 0.1.0
+     * @return void
+     */
     public static function setTag($value)
     {
         self::$_attributes->tag = $value;
     }
+
+    /**
+     * SETS THE CLASS
+     * @param null|string|array $value
+     * @see Attributes::$class
+     * @since 0.1.0
+     * @return void
+     */
     public static function setClass($value)
     {
         self::$_attributes->class = $value;
     }
+
+    /**
+     * SETS THE ID
+     * @param null|string $value
+     * @see Attributes::$id
+     * @since 0.1.0
+     * @return void
+     */
     public static function setId($value)
     {
         self::$_attributes->id = $value;
     }
+
+    /**
+     * SET THE STYLE
+     * @param null|string|array $value
+     * @see Attributes::$style
+     * @since 0.1.0
+     * @return void
+     */
     public static function setStyle($value)
     {
         self::$_attributes->style = $value;
     }
+
+    /**
+     * SET THE DATA
+     * @param null|string|array $value
+     * @see Attributes::$data
+     * @since 0.1.0
+     * @return void
+     */
     public static function setData($value)
     {
         self::$_attributes->data = $value;
     }
+
+    /**
+     * SET THE ATTRIBUTES
+     * @param null|string|array
+     * @see Attributes::$attr
+     * @since 0.1.0
+     * @return void
+     */
     public static function setAttr($value)
     {
         self::$_attributes->attr = $value;
     }
+
+    /**
+     * SET THE CHILD CONTENT
+     * @param bool|string $value
+     * @see Attributes::$child
+     * @since 0.1.0
+     * @return void
+     */
     public static function setChild($value)
     {
         self::$_attributes->child = $value;
     }
+
+    /**
+     * SET THE WRAP
+     * @param bool $value
+     * @see Attributes::$hasWrap
+     * @since 0.1.0
+     * @return void
+     */
     public static function setWrap($value)
     {
         self::$_attributes->hasWrap = $value;
@@ -76,14 +142,10 @@ class Element
 
     /**
      * GET THE ELEMENT
-     * This will build the html element.
-     **
+     * This is the main function to get an element.
      * @since 0.1.0
-     *
-     * @uses $this->hasWrap
-     *
+     * @uses Attributes::$hasWrap;
      * @return string
-     *
      */
     public static function get()
     {
@@ -95,14 +157,16 @@ class Element
     }
 
 
+
+
+
+
     /**
-     * SET ELEMENT TAG
-     * This will return the tag name of the element.
-     *
+     * GET ELEMENT TAG
+     * @access private
      * @since 0.1.0
-     *
-     * @uses $this->tag
-     *
+     * @uses Attributes::$tag
+     * @access private
      * @return string
      */
     private static function _getTag()
@@ -110,17 +174,13 @@ class Element
         return self::$_attributes->tag;
     }
 
-     /**
-     * SET ELEMENT CLASS
-     * This sets the class name(s) of the html element.
-     *
-     *
-     * @since 0.1.0
-      *
-     * @uses $this->class
-     *
-     * @return string
-     */
+    /**
+    * GET ELEMENT CLASS
+    * @access private
+    * @since 0.1.0
+    * @uses Attributes::$class
+    * @return string
+    */
     private static function _getClass()
     {
         $o = '';
@@ -140,13 +200,10 @@ class Element
     }
 
     /**
-     * SET ELEMENT ID
-     * This sets the id name of the html element.
-     *
+     * GET ELEMENT ID
+     * @access private
      * @since 0.1.0
-     *
-     * @uses $this->id
-     *
+     * @uses Attributes::$id
      * @return string
      */
     private static function _getId()
@@ -155,14 +212,10 @@ class Element
     }
 
     /**
-     * SET ELEMENT STYLE
-     * This sets the class name(s) of the html element.
-     *
-     *
+     * GET ELEMENT STYLE
+     * @access private
      * @since 0.1.0
-     *
-     * @uses $this->style
-     *
+     * @uses Attributes::$style
      * @return string
      */
     private static function _getStyle()
@@ -181,15 +234,11 @@ class Element
         return $o != '' ? ' style="' . $o . '"' : '';
     }
 
-
     /**
-     * SET ELEMENT DATA
-     * This sets the data attributes of the html element.
-     *
+     * GET ELEMENT DATA
      * @access private
      * @since 0.1.0
-     * @uses $this->data
-     *
+     * @uses Attributes::$data
      * @return string
      */
     private static function _getData()
@@ -202,24 +251,12 @@ class Element
         }
         return $o;
     }
+
     /**
-     * SET ELEMENT ATTR
-     * This sets a custom attribute for the html element.
-     * This method allows the creation of additional attributes that are not preconfigured elsewhere in the library.
-     *
-     * Format is ['attribute-name'] => 'attribute-value';
-     *
-     * Example:
-     *
-     * $attr = array(
-     *      'lang'      =>  'en',
-     *      'tabindex'  =>  '1'
-     * );
-     *
+     * GET ELEMENT ATTR
      * @access private
      * @since 0.1.0
-     * @uses $this->attr
-     *
+     * @uses Attributes::$attr
      * @return string
      */
     private static function _getAttr()
@@ -235,22 +272,10 @@ class Element
         return $o;
     }
 
-
-
-
     /**
      * BUILD WRAPPER ELEMENT
-     * This will create a standard html element that allows for inner html. We can open, close, or place content
-     * inside the wrapper based on the value of $content.
-     *
-     * Based on the value of $this->child:
-     *    bool (true) - opens the element
-     *    bool (false) - closes the element
-     *    string ('my content') - wraps 'my content' with the type of wrapper.
-     *
      * @access private
      * @since 0.1.0
-     *
      * @return string
      */
     private static function _wrap()
@@ -260,7 +285,6 @@ class Element
         if ( !isset(self::$_attributes->child) && !isset(self::$_attributes->tag) ) {
             return '<!-- HAPEL Warning: Cannot create node. Tag property not set! -->';
         }
-
 
         // Check if content is true / false
         if (is_bool(self::$_attributes->child)) {
@@ -290,13 +314,11 @@ class Element
 
     }
 
+
     /**
      * BUILD EMPTY ELEMENT
-     * This will build an empty html element (one that does not have inner html)
-     *
      * @access private
      * @since 0.1.0
-     *
      * @return string
      */
     private static function _noWrap()
@@ -305,14 +327,10 @@ class Element
     }
 
 
-
     /**
      * OPEN AN HTML ELEMENT
-     * This will create an html element's open tag
-     *
      * @access private
      * @since 0.1.0
-     *
      * @return string
      */
     private static function _wrapOpen()
@@ -320,13 +338,11 @@ class Element
         return '<' . self::_getTag() . self::_getClass() . self::_getId() . self::_getStyle() . self::_getData() . self::_getAttr() . '>';
     }
 
+
     /**
      * CLOSE AN HTML ELEMENT
-     * This will create an html element's close tag
-     *
      * @access private
      * @since 0.1.0
-     *
      * @return string
      */
     private static function _wrapClose()
@@ -337,11 +353,8 @@ class Element
 
     /**
      * WRAP CONTENT IN AN HTML ELEMENT
-     * This will create an html element's content wrapped in its open and close tag.
-     *
      * @access private
      * @since 0.1.0
-     *
      * @return string
      */
     private static function _wrapChild()
@@ -352,11 +365,8 @@ class Element
 
     /**
      * GET INNER HTML CONTENT
-     * This will get the inner html content for the element.
-     *
      * @access private
      * @since 0.1.0
-     *
      * @return string|null
      */
     private static function _getChild()
@@ -371,11 +381,8 @@ class Element
 
     /**
      * MAKE XHTML
-     * This will add a closing slash to make XHTML code.
-     *
      * @access private
      * @since 0.1.0
-     *
      * @return string
      */
     private static function _xhtmlClose()
@@ -387,11 +394,8 @@ class Element
 
     /**
      * ADD LINE BREAK
-     * This will add a line break at the end of each line of code.
-     *
      * @access private
      * @since 0.1.0
-     *
      * @return string
      */
     private static function _lineBreak()

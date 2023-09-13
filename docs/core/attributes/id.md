@@ -7,10 +7,10 @@
 
 Adds the id attribute to an HTML tag.
 
-Value      | Use
------------|-------------
-null       | prevents the attribute from being added
-string     | adds the value of 'string' as the attribute
+| Value    | Use                                         |
+|----------|---------------------------------------------|
+| null     | prevents the attribute from being added     |
+| string   | adds the value of 'string' as the attribute |
 
 
 ### Examples:

@@ -8,10 +8,10 @@
 Adds the method attribute to an HTML form tag.
 
 
-Value      | Use
------------|-------------
-null       | prevents the attribute from being added to the tag
-string     | adds the value of 'string' as the attribute
+| Value  | Use                                                |
+|--------|----------------------------------------------------|
+| null   | prevents the attribute from being added to the tag |
+| string | adds the value of 'string' as the attribute        |
 
 
 ### Examples:
@@ -22,6 +22,3 @@ $method = 'get';
 ```html
 <tag method="get" {...}
 ```
-
-###Methods Using This Parameter
-* [form()](../methods/form.md)

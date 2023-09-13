@@ -1,16 +1,17 @@
-# HAPEL
 
-Welcome to HAPEL (Html And Php Embedded Library)!
+![HAPEL](hapel_logo.png)
 
----
 
-## What is HAPEL?
 
-HAPEL is a PHP library that allows for rapid coding of html within your PHP applications without having to write html
+# What is HAPEL?
+
+Welcome to HAPEL: HTML And PHP Embedded Library.
+
+HAPEL is a PHP library that allows for rapid coding of html within your PHP applications without the need to write html
 markup. HAPEL makes it possible to stay within PHP 100% of the time, eliminating the need to add HTML fragments to your
 code or embed long strings of HTML markup. With HAPEL you write less code and get more done faster.
 
-## Why use HAPEL?
+# Why use HAPEL?
 
 * **Stay In PHP:** Keep all your code in PHP and avoid floating html fragments througout your application.
 * **No Clutter:** HAPEL streamlines repetitive code and saves having to write many lines of code across your
@@ -20,83 +21,93 @@ code or embed long strings of HTML markup. With HAPEL you write less code and ge
 * **Fast Render:** HAPEL renders HTML lightning fast.
 * **Component Builders** HAPEL makes creating complex components and labor-intensive markup easy. 
 
-## Brief History
+# Brief History
 
-HAPEL was born in the early 2009 as a private utility to make coding PHP applications faster, easier, and less
+HAPEL was born in the early 2008 as a private utility to make coding PHP applications faster, easier, and less
 cluttered. HAPEL and its previous versions have been used to power countless PHP applications and full production
 websites. Over the years, HAPEL has become more streamlined and new functions have been added as HTML has evolved.
 In 2018 HAPEL's core began an overhaul to allow for more control and easier creation of custom components and plugins.
-During this time, HAPEL;s developer decided to make the library available for public use. 
+During this time, HAPEL's developer decided to make the library available for public use. 
 
-## Requirements
+# Requirements
 
 + Minimum PHP 5.6
 
 ---
 
-## How Does HAPEL Work?
+# How Does HAPEL Work?
 
-Consider the following code used to display some database results in a table:
+In order to see how HAPEL works, we will create a select input box with several names. We will also add a function to
+compare the current value with the options and ensure the matching option is selected.
 
-```php
-  $data = $resultsFromDatabase;
-  
-  echo '<table>';
-    echo '<thead>';
-      echo '<tr>';
-          echo '<th> </th>';
-          echo '<th class="photo">Photo</th>';
-          echo '<th class="name">Name</th>';
-          echo '<th class="addr">Address</th>';
-          echo '<th class="tel">Phone</th>';
-      echo '</tr>';
-    echo '</thead>';
-    echo '<tbody>';
-    foreach ( $data as $record ) {
-        echo '<tr>';
-        echo '<td><a href="profile.php" class="button" title="'.$record['name'].'">View More</a></th>';
-        echo '<td class="photo"><img src="' . $record['photo'] . '" class="image" alt="' . $record['name'] . '"/></td>';
-        echo '<td class="name">' . $record['name'] .'</th>';
-        echo '<td class="addr">' . $record['address'] .'</th>';
-        echo '<td class="tel">' . $record['phone'] .'</th>';
-    echo '</tr>';
-    }
-    echo '</tbody>';
-  echo '</table>';
+Below we will take a look at two common methods of creating such a component.
+Then we will take a look at creating the same component with HAPEL.
 
-```
-Now we will create the same output with HAPEL.
+## Common Method 1: Embedding HTML
 
 ```php
-$data = $resultsFromDatabase;
-
-  $t->appendTHead(
-    $t->addRow(
-        $t->addTH(' '),
-        $t->addTH('Photo', 'photo'),
-        $t->addTH('Name', 'name'),
-        $t->addTH('Address', 'addr'),
-        $t->addTH('Phone', 'tel')
-    )
-  );
-
-foreach ( $data as $record ) {
-    $t->appendTBody(
-      $t->addRow(
-          $t->addTD($h->a('View More', 'profile.php',$record['name'], 'button')),
-          $t->addTD($h->img($record['photo'], $record['name'], 'image'), 'photo'),
-          $t->addTD($record['name'], 'name'),
-          $t->addTD($record['address'], 'addr'),
-          $t->addTD($record['phone'], 'tel')
-      )
-    );
-}
-
-echo $t->get();
+<?php
+$values = ['bob', 'bill', 'brenda', 'blake', 'britney'];
+?>
+<select name="person" class="person-select">
+<?php foreach ( $values as $value ) { ?>
+<option value="Bob" <?php echo $value == $name ? 'selected="selected"' : ''; ?>><?php echo $value; ?></option>
+<?php } ?>
+</select>
 ```
 
-In the above example, coding the same output uses over 25% less characters and requires no concatenating of strings.
-This makes coding faster and less error prone.
+This works but is messy and prone to mistakes. Let's try another common method:
+
+## Common Method 2: Echoing HTML
+
+```php
+<?php
+$values = ['bob', 'bill', 'brenda', 'blake', 'britney'];
+echo '<select name="person" class="person-select">';
+foreach ( $values as $value ) { 
+    echo '<option value="Bob" ' . $value == $name ? 'selected="selected"' : '' . '>' . $value . '</option>';
+echo '</select>';
+```
+
+That's a little better but still a lot to type. Let's use HAPEL to do that same thing.
+
+## HAPEL Method
+
+```php
+echo $h->inputSelect('person, ['Bob', 'Bill', 'Brenda', 'Blake', 'Britney'], 'Brenda', false, 'person-select);
+```
+
+In the above example, not only did HAPEL result in nearly 60% less keystrokes, the code is cleaner and more condensed. Additionally, HAPEL handled all the heavy lifting for you; looping, comparing values, and building the code all within a single function.
+
+This makes coding faster and less error-prone.
+
+## Reusable Code
+
+Another area that HAPEL shines is reusability. Let's suppose that we needed to add two select inputs.
+
+Our traditional code might look like this:
+
+```php
+<?php
+$values = ['Bob', 'Bill', 'Brenda', 'Blake', 'Britney'];
+echo '<select name="person" class="person-select">';
+foreach ( $values as $value ) { 
+    echo '<option value="Bob" ' . $value == $name ? 'selected="selected"' : '' . '>' . $value . '</option>';
+echo '</select>';
+
+$values1 = ['Peter', 'Patrick', 'Paula', 'Parker', 'Penelope'];
+echo '<select name="person" class="person-select2">';
+foreach ( $values as $value ) { 
+    echo '<option value="Paula" ' . $value == $name ? 'selected="selected"' : '' . '>' . $value . '</option>';
+echo '</select>';
+```
+
+And again using HAPEL:
+
+```php
+echo $h->inputSelect('person', ['Bob', 'Bill', 'Brenda', 'Blake', 'Britney'], 'Bob', false, 'person-select');
+echo $h->inputSelect('person2', ['peter', 'patrick', 'paula', 'parker', 'penelope'], 'Paula', false, 'person-select');
+```
 
 ---
 
@@ -105,62 +116,53 @@ This makes coding faster and less error prone.
 Below we will go over the basics of installing and using HAPEL in your project.
 
 1. [Installing HAPEL](#installing-hapel)
-2. [Including HAPEL](#including-hapel)
-3. Create a HAPEL HTML Object
-4. Generating HTML Output
-5. Displaying HTML Output
-6. Setting HTML Tag Attributes
-7. Opening & Closing Tags
-8. Custom Tags
-9. Custom Attributes
-10. Builder Classes
-11. Plugins
-12. Reference Docs
-13. Examples 
-14. Boilerplate Example
+2. [Including the HAPEL Library](#including-the-hapel-library)
+3. [Using the HAPEL HTML Class](#using-the-hapel-html-class)
+4. [Generating HTML Output](#generating-html-output)
+5. [Displaying HTML Output](#displaying-html-output)
+6. [Setting HTML Tag Attributes](#setting-html-tag-attributes)
+7. [Opening and Closing Tags](#opening-and-closing-tags)
+8. [Custom Tags](#custom-tags)
+9. [Custom Attributes](#custom-attributes)
+10. [Builders Classes](#builders)
+11. [Reference Docs](#reference-docs)
+13. [Examples](#examples)
+14. [Contributing to HAPEL](#contributing-to-hapel)
 
 ---
 
 ### Installing HAPEL
 
-Download the latest stable release of HAPEL, which you can be found from the
-[HAPEL Release Repository](https://github.com/mprograms/HAPEL/releases).
+HAPEL can be installed with composer or by downloading a release.
 
-Once downloaded, extract the package. You will find three directories: `docs`, `examples`, and `src`.
+> #### Composer
+> 
+> You can install HAPEL with composer from the [HAPEL Repository](https://github.com/mprograms/HAPEL/).
+ 
+> #### Packaged Releases
+> 
+> You can download one of the [HAPEL Releases](https://github.com/mprograms/HAPEL/releases).
+>
+> If you have downloaded a release, extract the package. You will find three directories: `docs`, `examples`, and `src`.
 All of HAPEL's library is contained in the `src` directory. Make sure you copy this directory and its content into 
 your project. You may also want to include the other two directories, `docs` and `examples`, for testing and learning
 purposes.
-
-Place the `src` directory and contents into your project at the desired location. An example project directory
-structure is shown below:
-   
-```
-    MyProject
-    + -- inc
-    |    + -- css
-    |    + -- js
-    + -- vendor
-    |    + -- hapel (create this directory)
-    |    |    + -- src (this is the extracted src directory)
-    + -- index.php
-```
 
 ### Including the HAPEL Library
    
 Include the HAPEL library in your project's code by using `require_once()`. This should be placed in your project's
 main file that loads classes.
 
-Using the example directory structure above, we will require HAPEL in the index.php file like so:
+For example, if we place the hapel directory in root, we can include it like so:
 
 ```php
-    $dir = dirname(__DIR__) . '/vendor/hapel/src/hapel.php';
-    require_once($dir);
+require_once( dirname(__DIR__) . '/hapel/src/hapel.php' );
 ```
 
 ### Using the HAPEL HTML Class
 
 At the core of HAPEL is the HTML Class (`\HAPEL\Html()`), which is the primary method of building HTML code.
-HAPEL also includes other helpful classes such as [Builders](#builders) and [Plugins](#plugins). These allow you to create more complex html
+HAPEL also includes other helpful classes known as [Builders](#builders). These allow you to create more complex html
 elements and components. These are discussed later on in this document.
 
 For now, it is important to get to know the Html Class.
@@ -168,7 +170,7 @@ For now, it is important to get to know the Html Class.
 To create a new HAPEL HTML Class we simply call the `Html()` method like so:
 
 ```php
-    $h = new \HAPEL\Html();
+$h = new \HAPEL\Html();
 ```
 
 ### Generating HTML Output
@@ -179,42 +181,41 @@ the same as their html counterpart. This makes finding the correct method easy.
 For example, to create a DIV, we use the `div()` method like so:
 
  ```php
-    $h->div('Hello World!');
+$h->div('Hello World!');
  ```
 
 To create a paragraph we use `p()`:
 
  ```php
-    $h->p('Hello World!');
+$h->p('Hello World!');
  ```
 
 To create an image we use `img()`:
 
  ```php
-    $h->img('pic.jpg');
+$h->img('pic.jpg');
  ```
 
 ### Displaying HTML Output
 
-HAPEL's HTML Class Methods return all output allowing you to refine how it is used. As a result, you must `echo`
-all to output you wish to display.
+All of HAPEL's Classes return their output allowing you to pass output to other functions and variables. As a result, you must `echo`
+all the output you wish to display.
 
  ```php
-    echo $h->div('Hello World!');
+echo $h->div('Hello World!');
  ```
 
 Output
 
  ```html
-    <div>Hello World!</div>
+<div>Hello World!</div>
  ```
 
 ### Setting HTML Tag Attributes
 
 HTML elements don't just have content, they also have attributes such as class, id, styles, etc. HAPEL makes it easy to
 define these. Most HAPEL HTML Class methods follow the [HAPEL Standard Parameter Schema](docs/core/methods/standard.md).
-This is a single, common parameter schema that retains the attributes and their order the same, regardless of
-the method.
+This is a single, common parameter schema that defines the same parameters in the same order, regardless of the method.
 
 The HAPEL Standard Parameter Schema looks like this:
 
@@ -241,25 +242,20 @@ We can also create opening `<div>` and closing `</div>` tags easily.
 
 #### Opening Tags
 
-To open a tag call `tag()`. For example, to open a DIV, call it like so:
+To open a tag call `tag(true)`. For example, to open a DIV, call it like so:
 
  ```php
-    $h->div();
+    $h->div(true);
  ```
 
-You can also open a tag by calling `tag(true)`. This is needed when you  want to create an open tag with an attribute.
-For example, to create an open DIV with a class of `myClass` call it like so:
-
- ```php
-    $h->div(true, 'myClass');
- ```
 
 #### Closing Tags
 
-To close a tag call `tag(false)`. For example, to close a DIV, call it like so:
+To close a tag call `tag(false)` or `tag()`. Both methods accomplish the same thing. For example, to close a DIV, call it like so:
 
  ```php
     $h->div(false);
+    $h->div();
  ```
 
 
@@ -269,13 +265,13 @@ Let's put this all together now and create an example of all three ways to creat
 
  ```php
     $h->section(true, 'posts');
-        $h->div();
+        $h->div(true);
             $h->div(true, 'article');
               $h->h2('Article Headline', 'title');
               $h->p('This is text for the article...');
             $h->div(false);
-        $h->div(false);
-    $h->section(false);
+        $h->div();
+    $h->section();
  ```
 
  Output:
@@ -324,12 +320,12 @@ a reminder, this looks like this:
 ```php
   $h->method($child, $class, $id, $style, $data, $attr);
 ```
-The last parameter, called `$attr` allow you to define your own custom attributes.
+The last parameter, called `$attr` allows you to define your own custom attributes.
 
 For example, let's say we need to create a DIV with the attribute of `role="button"`. We can do this like so:
 
 ```php
-    $h->div('Click Me!', 'myClass', 'myId', '', '', array('role'=>'button'));
+    $h->div('Click Me!', 'myClass', 'myId', '', '', ['role'=>'button']);
 ```
 
 ```html
@@ -348,32 +344,45 @@ to learn which methods have special cases.
 HAPEL also contains specialized classes called Builders. These classes help to create complex components more easily and
 with less code.
 
-For example, the sample code under "How Does HAPEL Work?" uses the
-[Table Builder Class](docs/builders/table.md) to create a table.
-
-Let's take a look at another Builder class called the [Stylesheet Builder](docs/builders/stylesheet.md) and how it is
-used to create an inline stylesheet:
+Let's take a look at a Builder class called the [Table Builder](docs/builders/table.md) and how it is
+used to create a table:
 
 ```php
-    $s = new \HAPEL\Builder\Stylesheet();
+    $t = new \HAPEL\Builder\Table();
     
-    $s->addSelector('header',
-        $s->addProp('color', 'white'),
-        $s->addProp('background', 'red')
+    $t->appendTBody(
+        $t->addRow(
+            $t->addTD('Bob'),
+            $t->addTD('Jones'),
+            $t->addTD('123 Main St')
+        ),
+        $t->addRow(
+            $t->addTD('Sam'),
+            $t->addTD('Smith'),
+            $t->addTD('541 Elm St')
+        )
     );
 
-    echo $s->get();
+    echo $t->get();
 ```
 
 This will output the following:
 
 ```html
-<style>
-  header {
-    color: white;
-    background: red;
-  }
-</style>
+<table>
+    <tbody>
+    <tr>
+        <td>Bob</td>
+        <td>Jones</td>
+        <td>123 Main Street</td>
+    </tr>
+    <tr>
+        <td>Sam</td>
+        <td>Smith</td>
+        <td>541 Elm Street</td>
+    </tr>
+    </tbody>
+</table>
 ```
 
 
@@ -385,14 +394,19 @@ HAPEL contains extensive documentation.
     * [HTML Class Method Reference](docs/core/core_method_reference.md)
     * [HTML Class Attribute Reference](docs/core/core_attribute_reference.md)
 * HAPEL Builder Classes
-    * [Table](docs/builders/table.md)
+  * [Full Builder List](docs/builders/builders_reference.md)
+    * [Audio](docs/builders/audio.md)
+    * [Canvas](docs/builders/canvas.md)
+    * [Details](docs/builders/details.md)
+    * [Figure](docs/builders/figure.md)
+    * [Form](docs/builders/form.md)
+    * [Imagemap](docs/builders/imagemap.md)
+    * [Lists](docs/builders/lists.md)
+    * [Picture](docs/builders/picture.md)
     * [Stylesheet](docs/builders/stylesheet.md)
-    * [Bulletlist]
-
-
-### Plugins
-
-// TODO
+    * [svg]
+    * [Table](docs/builders/table.md)
+    * [Video](docs/builders/video.md)
 
 
 ### Examples

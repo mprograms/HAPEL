@@ -1,10 +1,10 @@
 # HAPEL Core Method Reference
 
 ---
-##\<doctype ...>
+## \<!doctype ...>
 
 
-###Description
+### Description
 
 Creates a `<!doctype>` html tag.
 
@@ -14,17 +14,17 @@ doctype($type);
 
 ###Parameters
 
-Parameter                           | Required  | Default
-------------------------------------|-----------|----------------
-[$type](../attributes/type.md)      | no        | 'html'
+| Parameter                      | Required  | Default  |
+|--------------------------------|-----------|----------|
+| [$type](../attributes/type.md) | no        | 'html'   |
 
 
-###Return Values
+### Return Values
 
 `string`
 
 
-###Example
+### Example
 
 Usage:
 ```php

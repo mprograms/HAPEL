@@ -1,10 +1,10 @@
 # HAPEL Core Method Reference
 
 ---
-##\<html ...>
+## \<html ...>
 
 
-###Description
+### Description
 
 Creates a `<html>` html tag.
 
@@ -12,21 +12,21 @@ Creates a `<html>` html tag.
 html($child, $lang, $attr);
 ```
 
-###Parameters
+### Parameters
 
-Parameter                           | Required  | Default
-------------------------------------|-----------|--------------
-[$child](../attributes/child.md)    | no        | true
-[$lang](../attributes/lang.md)      | no        | 'en'
-[$attr](../attributes/attr.md)      | no        | null
+| Parameter                           | Required  | Default |
+|-------------------------------------|-----------|---------|
+| [$child](../attributes/child.md)    | no        | false   |
+| [$lang](../attributes/lang.md)      | no        | 'en'    |
+| [$attr](../attributes/attr.md)      | no        | null    |
 
 
-###Return Values
+### Return Values
 
 `string`
 
 
-###Example
+### Example
 
 Usage:
 ```php

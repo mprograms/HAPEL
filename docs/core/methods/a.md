@@ -1,10 +1,10 @@
 # HAPEL Core Method Reference
 
 ---
-##\<a ...>
+## \<a ...>
 
 
-###Description
+### Description
 
 Creates a `<a>` html tag.
 
@@ -12,25 +12,25 @@ Creates a `<a>` html tag.
 a($child, $href, $title, $class, $id, $style, $data, $attr);
 ```
 
-###Parameters
+### Parameters
 
-Parameter                               | Required  | Default
-----------------------------------------|-----------|--------------
-[$child](../attributes/child.md)        | no        | true
-[$href](../attributes/href.md)          | no        | null
-[$title](../attributes/title.md)        | no        | null
-[$class](../attributes/class.md)        | no        | null
-[$id](../attributes/id.md)              | no        | null
-[$style](../attributes/style.md)        | no        | null
-[$data](../attributes/data.md)          | no        | null
-[$attr](../attributes/attr.md)          | no        | null
+| Parameter                         | Required  | Default |
+|-----------------------------------|-----------|---------|
+| [$child](../attributes/child.md)  | no        | false   |
+| [$href](../attributes/href.md)    | no        | null    |
+| [$title](../attributes/title.md)  | no        | null    |
+| [$class](../attributes/class.md)  | no        | null    |
+| [$id](../attributes/id.md)        | no        | null    |
+| [$style](../attributes/style.md)  | no        | null    |
+| [$data](../attributes/data.md)    | no        | null    |
+| [$attr](../attributes/attr.md)    | no        | null    |
 
-###Return Values
+### Return Values
 
 `string`
 
 
-###Example
+### Example
 
 Usage:
 ```php
