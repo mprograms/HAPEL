@@ -1,5 +1,5 @@
 {
-  "name": "mprograms/hapel",
+  "name": "hapel/hapel",
   "type": "library",
   "description": "HAPEL (Html And Php Embedded Library) makes generating html with php easier with built-in functions. Fast, lightweight, and easily extendable.",
   "keywords": ["php","html", "html generator"],
