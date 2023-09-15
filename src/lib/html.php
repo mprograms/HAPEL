@@ -1380,7 +1380,7 @@ class Html
     public function option($child = false, $value = null, $selected = false)
     {
         $attr['value'] = !is_null($value) ? $value : $child;
-        $attr['selected'] = $selected === true ? 'selected' : '';
+        $attr['selected'] = $selected === true ? 'selected' : null;
         $c = new Component($this->settings);
         return $c::globalElement('option', $child, null, null, null, null, $attr);
     }

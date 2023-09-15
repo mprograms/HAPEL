@@ -126,12 +126,6 @@ Other methods that use different formatting are documented separately.
 | wbr               | `wbr($class = null, $id = null, $style = null, $attr = null)`                             | see [wbr](methods/wbr.md)               |
 
 
-
-
-
-
-
-
 ### Deprecated Tags
 
 The following tags are listed as deprecated or no longer supported by modern HTML. HAPEL still has support for some of these tags.
@@ -159,29 +153,3 @@ however if you need to use a tag that is not supported by HAPEL, you can use the
 | strike    | `strike($child, $class, $id, $style, $data, $attr)`  | 0.x, 1.x                    |                           |
 | tt        |                                                      | -                           | kbd, code, samp           |
 | u         | `ul($child, $class, $id, $style, $data, $attr)`      | 0.x, 1.x                    |                           |
-
-
-
-
-| input (button)         | ``                                                                                               |                                         |
-| input (checkbox)       | ``                                                                                               |                                         |
-| input (color)          | `color($name, $value, $required, $class, $id, $style, $data, $attr)`                             | see [color](methods/color.md)           |
-| input (date)           | `date($name, $value, $required, $class, $id, $style, $data, $attr)`                              | see [date](methods/date.md)             |
-| input (datetime-local) | `datetime($name, $value, $required, $class, $id, $style, $data, $attr)`                          | see [datetime](methods/datetime.md)     |
-| input (email)          | `email($name, $value, $required, $placeholder, $class, $id, $style, $data, $attr)`               | see [email](methods/email.md)           |
-| input (file)           | `file($name, $class, $id, $style, $data, $attr)`                                                 | see [file](methods/file.md)             |
-| input (hidden)         | `hidden($name, $value)`                                                                          | see [hidden](methods/hidden.md)         |
-| input (image)          | ``                                                                                               |                                         |
-| input (month)          | `month($name, $value, $required, $placeholder, $class, $id, $style, $data, $attr)`               | see [month](methods/month.md)           |
-| input (number)         | `number($name, $value, $required, $placeholder, $class, $id, $style, $data, $attr)`              | see [number](methods/number.md)         |
-| input (password)       | `password($name, $value, $required, $placeholder, $class, $id, $style, $data, $attr)`            | see [password](methods/password.md)     |
-| input (radio)          | ``                                                                                               |                                         |
-| input (range)          | ``                                                                                               |                                         |
-| input (reset)          | ``                                                                                               |                                         |
-| input (search)         | `search($name, $value, $required, $placeholder, $class, $id, $style, $data, $attr)`              | see [search](methods/search.md)         |
-| input (submit)         | `submit($value, $class, $id, $style, $data, $attr)`                                              |                                         |
-| input (tel)            | `tel($name, $value, $required, $placeholder, $class, $id, $style, $data, $attr)`                 | see [tel](methods/tel.md)               |
-| input (text)           | `text($name, $value, $required, $placeholder, $class, $id, $style, $data, $attr)`                | see [text](methods/text.md)             |
-| input (time)           | `time($name, $value, $required, $placeholder, $class, $id, $style, $data, $attr)`                | see [time](methods/time.md)             |
-| input (url)            | `url($name, $value, $required, $placeholder, $class, $id, $style, $data, $attr)`                 | see [url](methods/url.md)               |
-| input (week)           | `url($name, $value, $required, $placeholder, $class, $id, $style, $data, $attr)`                 | see [url](methods/url.md)               |
