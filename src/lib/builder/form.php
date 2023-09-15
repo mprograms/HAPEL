@@ -86,7 +86,7 @@ class Form
      * @since 0.2.0
      * @return string
      */
-    public function inputCheckbox($name, $value = null, $label = null, $required = false, $compare = null, $class = null, $id = null, $style = null, $data = null, $attr = null)
+    public function inputCheckbox($name, $value = null, $label = null, $compare = null, $required = false, $class = null, $id = null, $style = null, $data = null, $attr = null)
     {
         $id = $this->_getId($name, $id);
         $attr['checked'] = $this->_getCompare($value, $compare);
@@ -323,7 +323,7 @@ class Form
      * @since 0.2.0
      * @return string
      */
-    public function inputRadio($name, $options = null, $required = false, $compare = null, $class = null, $id = null, $style = null, $data = null, $attr = null)
+    public function inputRadio($name, $options = null, $compare = null, $required = false, $class = null, $id = null, $style = null, $data = null, $attr = null)
     {
         $o = '';
         $id = $this->_getId($name, $id);
@@ -610,7 +610,7 @@ class Form
      * @since 0.2.0
      * @return string
      */
-    public function select($name, $options = null, $required = false, $compare = null, $class = null, $id = null, $style = null, $data = null, $attr = null)
+    public function select($name, $options = null, $compare = null, $required = false,  $class = null, $id = null, $style = null, $data = null, $attr = null)
     {
         $o = '';
         $id = $this->_getId($name, $id);
@@ -636,7 +636,7 @@ class Form
 
 
 
-    public function toggle($name, $labels = ['Off', 'On'], $value = null, $required = false, $class = null, $id = null, $style = null, $data = null, $attr = null)
+    public function toggle($name, $value = null, $labels = ['Off', 'On'], $required = false, $class = null, $id = null, $style = null, $data = null, $attr = null)
     {
         return $this->inputRadio($name, $labels, $required, $value, $class, $id, $style, $data, $attr);
     }

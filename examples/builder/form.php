@@ -78,7 +78,7 @@ echo $f->form(true);
 
 
     $a = ['option1'=>'Option 1', 'option2'=>'Option 2'];
-    $o = $f->inputRadio('field-radio', $a, true, 'option2');
+    $o = $f->inputRadio('field-radio', $a, 'option2', true);
     echo $f->fieldset($o, 'Radio');
 
 
@@ -144,12 +144,12 @@ echo $f->form(true);
 
 
     $o = $f->toggle('field-toggle');
-    $o .= 'With custom labels:' . $f->toggle('field-toggles', ['No', 'Yes']);
+    $o .= 'With custom labels:' . $f->toggle('field-toggles', '0', ['No', 'Yes']);
     echo $f->fieldset($o, 'Toggle');
 
 
     $a = ['option1'=>'Option 1','option2'=>'Option 2'];
-    $o = $f->select('field-select', $a, true, 'option2');
+    $o = $f->select('field-select', $a,'option2', true);
 
     $a = [
         [

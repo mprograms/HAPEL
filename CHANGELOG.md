@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Bug in Builder/Form where option was not being correctly selected.
 - Removed irrelevant content from core_method_reference.md.
 
+### Changed
+- Modified the parameter order for Builder/Form methods:`select`, `toggle`, `inputCheckbox`, `inputRadio` parameters.
+    The `$compare` parameter now comes before `$required` to keep more commonly used parameters first.
+
 ## [0.4.0-beta]
 ### Added
 - New documentation added.

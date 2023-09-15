@@ -37,7 +37,7 @@ echo $F->inputText($name, $value);
 |------------------------|-----------------------------------------------------------------------------------------------------|
 | form                   | `form($child, $method, $action, $class, $id, $style, $data, $attr)`                                 |
 | input (button)         | `inputButton($name, $value, $class, $id, $style, $data, $attr)`                                     |
-| input (checkbox)       | `inputCheckbox($name, $value, $label, $required, $compare, $class, $id, $style, $data, $attr)`      |
+| input (checkbox)       | `inputCheckbox($name, $value, $label, $compare, $required, $class, $id, $style, $data, $attr)`      |
 | input (checkboxes)*    | `inputCheckboxes($name, $options, $compare, $class, $id, $style, $data, $attr)`                     |
 | input (color)          | `inputColor($name, $value, $required, $class, $id, $style, $data, $attr)`                           |
 | input (date)           | `inputDate($name, $value, $required, $class, $id, $style, $data, $attr)`                            |
@@ -48,7 +48,7 @@ echo $F->inputText($name, $value);
 | input (month)          | `inputMonth($name, $value, $required, $class, $id, $style, $data, $attr)`                           |
 | input (number)         | `inputNumber($name, $value, $required, $class, $id, $style, $data, $attr)`                          |
 | input (password)       | `inputPassword($name, $value, $required, $class, $id, $style, $data, $attr)`                        |
-| input (radio)          | `inputRadio($name, $options, $required, $compare, $class, $id, $style, $data, $attr)`               |
+| input (radio)          | `inputRadio($name, $options, $compare, $required, $class, $id, $style, $data, $attr)`               |
 | input (range)          | `inputRange($name, $value, $required, $min, $max, $class, $id, $style, $data, $attr)`               |
 | input (reset)          | `inputReset($name, $value, $class, $id, $style, $data, $attr)`                                      |
 | input (search)         | `inputSearch($name, $value, $required, $placeholder, $datalist, $class, $id, $style, $data, $attr)` |
@@ -60,8 +60,8 @@ echo $F->inputText($name, $value);
 | input (week)           | `inputWeek($name, $value, $required, $class, $id, $style, $data, $attr)`                            |
 | label                  | `label($label, $content, $for)`                                                                     |
 | textarea               | `textarea($name, $value, $required, $placeholder, $class, $id, $style, $data, $attr)`               |
-| toggle*                | `toggle($name, $labels, $value, $required, $class, $id, $style, $data, $attr)`                      |
-| select                 | `select($name, $options, $required, $compare, $class, $id, $style, $data, $attr)`                   |
+| toggle*                | `toggle($name, $value, $labels, $required, $class, $id, $style, $data, $attr)`                      |
+| select                 | `select($name, $options, $compare, $required, $class, $id, $style, $data, $attr)`                   |
 
 *This is a custom HAPEL input type and not a standard HTML input.
 
@@ -121,7 +121,7 @@ inputButton('button-name', 'Click Me');
 Make a single checkbox:
 
 ```php
-inputCheckbox('field-checkbox', '1', 'label', true, '1');
+inputCheckbox('field-checkbox', '1', 'label', '1', true);
 ```
 
 ```html
@@ -270,7 +270,7 @@ inputPassword('field-password');
 
 ```php
 $a = ['option1'=>'Option 1', 'option2'=>'Option 2'];
-inputRadio('field-radio', $a, true, 'option2');
+inputRadio('field-radio', $a, 'option2', true);
 ```
 
 ```html
@@ -451,7 +451,7 @@ toggle('field-toggle');
 Set custom values. Note that boolean value will always be 0 or 1.
 
 ```php
-toggle('field-toggle', ['No', 'Yes']);
+toggle('field-toggle', '0', ['No', 'Yes']);
 ```
 
 ```html
@@ -469,7 +469,7 @@ toggle('field-toggle', ['No', 'Yes']);
 
 ```php
 $a = ['option1'=>'Option 1','option2'=>'Option 2'];
-select('field-select', $a, true, 'option2', 'myclass');
+select('field-select', $a, 'option2', true, 'myclass');
 ```
 
 ```html
@@ -491,7 +491,7 @@ $a = [
             ]
         ]
     ];
-select('field-selectopgroup', $a, true, '', 'myclass');
+select('field-selectopgroup', true, $a, '', 'myclass');
 ```
 
 ```html
