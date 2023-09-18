@@ -375,9 +375,6 @@ class Html
     /**
      * BUTTON
      * @param bool|string $child {@see Attributes::$child}
-     * @param bool|string $name the name value.
-     * @param bool|string $value the value.
-     * @param bool|string $type the type value.
      * @param null|string|array $class {@see Attributes::$class}
      * @param null|string $id {@see Attributes::$id}
      * @param null|string|array $style {@see Attributes::$style}
@@ -385,11 +382,9 @@ class Html
      * @param null|array $attr {@see Attributes::$attr}
      * @return string
      */
-    public function button($child = false, $name = null, $value = '', $type = 'button', $class = null, $id = null, $style = null, $data = null, $attr = null)
+    public function button($child = false, $class = null, $id = null, $style = null, $data = null, $attr = null)
     {
-        $attr['name'] = $name;
-        $attr['value'] = $value;
-        $attr['type'] = $type;
+        $attr['type'] = 'button';
         $c = new Component($this->settings);
         return $c::globalElement('button', $child, $class, $id, $style, $data, $attr);
     }

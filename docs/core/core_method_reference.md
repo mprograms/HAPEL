@@ -29,7 +29,7 @@ Other methods that use different formatting are documented separately.
 | blockquote        | `blockquote($child, $class, $id, $style, $data, $attr)`                                   | see [standard](methods/standard.md)     |
 | body              | `body($child, $class, $id, $style, $data, $attr)`                                         | see [standard](methods/standard.md)     |
 | br                | `br($class, $id, $style, $attr)`                                                          | see [br](methods/br.md)                 |
-| button            | `button($child, $name, $value, $type, $class, $id, $style, $attr)`                        | see [button](methods/button.md)         |
+| button            | `button($child, $class, $id, $style, $attr)`                                              | see [button](methods/button.md)         |
 | canvas            | `canvas($child, $class, $id, $style, $data, $attr)`                                       | see [standard](methods/standard.md)     |
 | caption           | `caption($child, $class, $id, $style, $data, $attr)`                                      | see [standard](methods/standard.md)     |
 | cite              | `cite($child, $class, $id, $style, $data, $attr)`                                         | see [standard](methods/standard.md)     |
