@@ -328,14 +328,16 @@ class Form
         $o = '';
         $id = $this->_getId($name, $id);
 
-        foreach ( $options as $value => $label ) {
+        if ( is_array($options) ) {
+            foreach ($options as $value => $label) {
 
-            $itemId = $this->_getId($id, null, $value);
-            $attr['checked'] = $this->_getCompare($value, $compare);
+                $itemId = $this->_getId($id, null, $value);
+                $attr['checked'] = $this->_getCompare($value, $compare);
 
-            $o .= $this->_HTML->input('radio', $name, $value, $required, null, $class, $itemId, $style, $data, $attr ) . $this->_HTML->label($label, $itemId);
+                $o .= $this->_HTML->input('radio', $name, $value, $required, null, $class, $itemId, $style, $data, $attr) . $this->_HTML->label($label, $itemId);
 
-            unset($attr['checked']);
+                unset($attr['checked']);
+            }
         }
 
         return $o;

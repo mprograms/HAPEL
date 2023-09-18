@@ -29,14 +29,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Form elements (input, textarea, select, etc.) removed from Components class and placed into its own Builder class.
 
 
-## [0.3.0]
+## [0.3.0-alpha]
 ### Added
 - Additional cleanup functions to Builder\Table.
 
 ### Fixed
 - Several bugs.
 
-## [0.2.0]
+## [0.2.0-alpha]
 ### Added
 - Added Builder\Stylesheet.
 - Added Builder\Table.
