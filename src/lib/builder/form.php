@@ -90,7 +90,11 @@ class Form
     {
         $id = $this->_getId($name, $id);
         $attr['checked'] = $this->_getCompare($value, $compare);
-        return $this->_HTML->input('checkbox', $name, $value, $required, null, $class, $id, $style, $data, $attr) . $this->_HTML->label($label, $id);
+        return $this->label(
+            $label,
+            $this->_HTML->input('checkbox', $name, $value, $required, null, $class, $id, $style, $data, $attr),
+            $id
+        );
     }
 
 
