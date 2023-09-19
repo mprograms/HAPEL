@@ -640,7 +640,7 @@ class Form
 
     public function toggle($name, $value = null, $labels = ['Off', 'On'], $required = false, $class = null, $id = null, $style = null, $data = null, $attr = null)
     {
-        return $this->inputRadio($name, $labels, $required, $value, $class, $id, $style, $data, $attr);
+        return $this->inputRadio($name, $labels, $value, $required, $class, $id, $style, $data, $attr);
     }
 
 
