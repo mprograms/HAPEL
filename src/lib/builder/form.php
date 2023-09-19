@@ -746,7 +746,7 @@ class Form
      */
     private function _getCompare($value, $compare, $type = 'checked')
     {
-        return $value == $compare ? $type : null;
+        return (string)$value == (string)$compare ? $type : null;
     }
 
 
