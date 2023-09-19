@@ -429,7 +429,7 @@ class Form
     public function inputSubmit($name, $value = null, $class = null, $id = null, $style = null, $data = null, $attr = null)
     {
         $id = $this->_getId($name, $id);
-        return $this->_HTML->input('submit', $name, $value, $class, $id, $style, $data, $attr);
+        return $this->_HTML->input('submit', $name, $value, false, null, $class, $id, $style, $data, $attr);
     }
 
 
