@@ -105,8 +105,8 @@ class Picture
     {
         $o = '';
         $o .= $this->_HTML->picture(true, $class, $id, $style, $data, $attr);
-        $o .= $this->_getImg();
         $o .= $this->_getSources();
+        $o .= $this->_getImg();
         $o .= $this->_HTML->picture(false);
 
         return $o;
