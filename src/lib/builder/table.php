@@ -366,21 +366,21 @@ class Table
         $o .= $this->_HTML->table(true, $this->_class, $this->_id);
 
         // Add thead
-        $o .= $this->_HTML->thead();
+        $o .= $this->_HTML->thead(true);
         foreach ( $this->_thead['rows'] as $row){
             $o .= $this->_buildRow($row);
         }
         $o .= $this->_HTML->thead(false);
 
         // Add tbody
-        $o .= $this->_HTML->tbody();
+        $o .= $this->_HTML->tbody(true);
         foreach ( $this->_tbody['rows'] as $row){
             $o .= $this->_buildRow($row);
         }
         $o .= $this->_HTML->tbody(false);
 
         // Add tfoot
-        $o .= $this->_HTML->tfoot();
+        $o .= $this->_HTML->tfoot(true);
         foreach ( $this->_tfoot['rows'] as $row){
             $o .= $this->_buildRow($row);
         }
