@@ -299,7 +299,7 @@ class Element
                 return self::_wrapClose(). self::_lineBreak();
             }
 
-        } elseif (is_string(self::$_attributes->child)) {
+        } elseif ( is_string(self::$_attributes->child) || is_numeric(self::$_attributes->child) ) {
             // The element has child html content so wrap it
             return self::_wrapChild(). self::_lineBreak();
 
