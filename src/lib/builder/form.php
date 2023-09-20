@@ -116,7 +116,7 @@ class Form
 
         foreach ( $options as $value => $label ) {
             $itemId = $id . '-' . $value;
-            $o .= $this->inputCheckbox($name, $value, $label, null, $compare, $class, $itemId, null, null, $attr );
+            $o .= $this->inputCheckbox($name, $value, $label, $compare, $compare, $class, $itemId, null, null, $attr );
         }
 
         return $o;
@@ -748,7 +748,20 @@ class Form
      */
     private function _getCompare($value, $compare, $type = 'checked')
     {
-        return (string)$value == (string)$compare ? $type : null;
+        $r = null;
+
+        if ( is_array($compare) ) {
+            foreach ( $compare as $k=>$v ) {
+                if ( (string) $value == (string) $k ) {
+                    $r = $type;
+                }
+            }
+        } else {
+            if ( (string) $value == (string) $compare )  {
+                $r = $type;
+            }
+        }
+        return $r;
     }
 
 
