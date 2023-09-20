@@ -744,6 +744,9 @@ class Form
      * @param string $value the value of the element. Required.
      * @param null|string $compare the value to compare $value against. This might be from the user input, database, etc. Required.
      * @param string $type the string to return. Default: 'checked'.
+     *
+     * Note: If $compare is an array or key/value pairs. The key is ignored and the value is used to compare.
+     *
      * @return string
      */
     private function _getCompare($value, $compare, $type = 'checked')
@@ -751,8 +754,8 @@ class Form
         $r = null;
 
         if ( is_array($compare) ) {
-            foreach ( $compare as $k=>$v ) {
-                if ( (string) $value == (string) $k ) {
+            foreach ( $compare as $v ) {
+                if ( (string) $value == (string) $v ) {
                     $r = $type;
                 }
             }
