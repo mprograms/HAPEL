@@ -267,12 +267,16 @@ class Table
      * @param string $content {@see self::_addCell()}
      * @param string $class {@see self::_addCell()}
      * @param string $id {@see self::_addCell()}
-     * @since 0.2.0
+     * @param string $attr {@see self::_addCell()}
+     *
+     * @since 0.2.0 Init method.
+     * @since 0.4.1 Added $attr.
+     *
      * @return array
      */
-    public function addTD($content = '', $class = null, $id = null)
+    public function addTD($content = '', $class = null, $id = null, $attr = null)
     {
-        return $this->_addCell('td', $content, $class, $id);
+        return $this->_addCell('td', $content, $class, $id, $attr);
     }
 
 
@@ -281,12 +285,16 @@ class Table
      * @param string $content {@see self::_addCell()}
      * @param string $class {@see self::_addCell()}
      * @param string $id {@see self::_addCell()}
-     * @since 0.2.0
+     * @param string $attr {@see self::_addCell()}
+     *
+     * @since 0.2.0 Init method.
+     * @since 0.4.1 Added $attr.
+     *
      * @return array
      */
-    public function addTH($content = '', $class = null, $id = null)
+    public function addTH($content = '', $class = null, $id = null, $attr = null)
     {
-        return $this->_addCell('th', $content, $class, $id);
+        return $this->_addCell('th', $content, $class, $id, $attr);
     }
 
 
@@ -297,16 +305,21 @@ class Table
      * @param string $content is the content to show in the cell.
      * @param null|string $class is the class for the cell.
      * @param null|string $id is the id for the cell.
-     * @since 0.2.0
+     * @param string $attr
+     *
+     * @since 0.2.0 Init method.
+     * @since 0.4.1 Added $attr.
+     *
      * @return array
      */
-    private function _addCell($type = 'td', $content = '', $class = null, $id = null)
+    private function _addCell($type = 'td', $content = '', $class = null, $id = null, $attr = null)
     {
         return array(
             'type'      =>  $type,
             'content'   =>  $content,
             'class'     =>  $class,
-            'id'        =>  $id
+            'id'        =>  $id,
+            'attr'      =>  $attr
         );
     }
 
@@ -415,18 +428,21 @@ class Table
 
     /**
      * BUILD A CELL
-     * @access private
-     * @since 0.2.0
      * @param array $cell contains cell data.
+     * @access private
+     *
+     * @since 0.2.0 Init method.
+     * @since 0.4.1 Added $cell['attr'].
+     *
      * @return string
      */
     private function _buildCell($cell)
     {
         if ( $cell['type'] == 'th') {
-            return $this->_HTML->th($cell['content'], $cell['class'], $cell['id']);
+            return $this->_HTML->th($cell['content'], $cell['class'], $cell['id'], null, null, $cell['attr']);
         }
         if ( $cell['type'] == 'td') {
-            return $this->_HTML->td($cell['content'], $cell['class'], $cell['id']);
+            return $this->_HTML->td($cell['content'], $cell['class'], $cell['id'], null, null, $cell['attr']);
         }
     }
 
