@@ -207,7 +207,7 @@ class Form
         $id = $this->_getId($name, $id);
         $dlName = $this->_getDataListName($datalist, $id);
         $attr['list'] = $dlName;
-        return $this->_HTML->input('url', $name, $value, $required, $placeholder, $class, $id, $style, $data, $attr) . $this->_getDatalist($datalist, $dlName);
+        return $this->_HTML->input('email', $name, $value, $required, $placeholder, $class, $id, $style, $data, $attr) . $this->_getDatalist($datalist, $dlName);
     }
 
 
